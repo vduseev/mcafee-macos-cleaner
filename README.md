@@ -5,6 +5,7 @@
 Removes the following McAfee software from macOS and prevents it from being installed again:
 
 * McAfee Threat Prevention for Mac
+* McAfee Endpoint Security for Mac
 * McAfee Agent
 
 ## Project Goal & Design

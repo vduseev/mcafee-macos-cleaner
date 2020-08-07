@@ -16,13 +16,14 @@ STEP_COUNTER=1
 
 MCAFEE_DIR_PATHS=(
   "/usr/local/McAfee/"
-  "/Library/Application\ Support/McAfee/"
+  "/Library/Application Support/McAfee/"
   "/Library/McAfee/"
   "/var/McAfee/"
   "/etc/ma.d"
   "/etc/cma.d/"
   "/Library/StartupItems/ma"
   "/Library/StartupItems/cma"
+  "/Applications/McAfee Endpoint Security for Mac.app/"
 )
 
 MCAFEE_FILE_GLOBS=(
@@ -106,6 +107,8 @@ delete_user() {
 
 remove_dirs() {
   for i in "${MCAFEE_DIR_PATHS[@]}"; do
+    echo "${i}"
+    ls -laO "${i}"
     # Check if the directory is already marked by us as immutable
     if [[ ! $(ls -laO "${i}" | grep schg | grep -c uchg) -ge 1 ]]; then
       rm -rf "${i}"
